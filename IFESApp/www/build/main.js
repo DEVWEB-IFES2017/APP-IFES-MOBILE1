@@ -30,19 +30,16 @@ var LoginPage = (function () {
         this.toast = toast;
         this.servicelogin = servicelogin;
         this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+        this.model.servidor = true;
     }
     LoginPage.prototype.login = function () {
         var _this = this;
         console.log("inicio login");
         this.servicelogin.login(this.model.email, this.model.senha, this.model.servidor).then(function (result) {
             _this.toast.create({ message: 'Seja bem vindo ' + result.nome, position: 'botton', duration: 3000 }).present();
-            //this.toast.create({ message: 'Usu�rio logado com sucesso. E-Mail: ' + result.email, position: 'botton', duration: 3000 }).present();
-            //Salvar o token no Ionic Storage para usar em futuras requisi��es.
-            //Redirecionar o usuario para outra tela usando o navCtrl
-            //this.navCtrl.pop();
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_tabs_tabs__["a" /* TabsPage */]);
         }).catch(function (error) {
-            _this.toast.create({ message: 'Falha ao efetuar login, Usu�rio e Senha inv�lidos!!', position: 'botton', duration: 3000 }).present();
+            _this.toast.create({ message: 'Falha ao efetuar login, Usuário e Senha inválidos!!', position: 'botton', duration: 3000 }).present();
         });
     };
     LoginPage.prototype.ionViewDidLoad = function () {
@@ -52,7 +49,7 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="! model.servidor">Servidor</ion-label>\n          <ion-label *ngIf="model.servidor">Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="! model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]])
 ], LoginPage);
@@ -129,7 +126,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      IFES - Serra\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-list-header>Contatos </ion-list-header>\n    <ion-item>\n      <ion-icon name="contact" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/about/about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      IFES - Serra\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-list-header>Contatos </ion-list-header>\n    <ion-item>\n      <ion-icon name="contact" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/about/about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], AboutPage);
@@ -164,7 +161,7 @@ var ContactPage = (function () {
 }());
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contatos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Fale conosco </ion-list-header>\n    <ion-item>\n      <ion-icon name="mail" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n    <ion-item>\n      <ion-icon name="call" item-start></ion-icon>\n      (27) 3348-9200\n    </ion-item>\n    <ion-item>\n      <ion-icon name="clock" item-start></ion-icon>\n      07h às 22h30m\n    </ion-item>\n    <ion-item>\n      <ion-icon name="pin" item-start></ion-icon>\n      <p>ES-010, Km-6,5 - Manguinhos, Serra - ES, 29173-087</p>\n      </ion-item>\n      <ion-item>\n        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14977.900153717135!2d-40.2171257!3d-20.1975718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafbf9ef51ebb8429!2sInstituto+Federal+do+Esp%C3%ADrito+Santo+(IFES)+-+Campus+Serra!5e0!3m2!1spt-BR!2sbr!4v1510584737591" width="450" height="330" frameborder="0" style="border:0" allowfullscreen></iframe>\n      </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/contact/contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contatos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Fale conosco </ion-list-header>\n    <ion-item>\n      <ion-icon name="mail" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n    <ion-item>\n      <ion-icon name="call" item-start></ion-icon>\n      (27) 3348-9200\n    </ion-item>\n    <ion-item>\n      <ion-icon name="clock" item-start></ion-icon>\n      07h às 22h30m\n    </ion-item>\n    <ion-item>\n      <ion-icon name="pin" item-start></ion-icon>\n      <p>ES-010, Km-6,5 - Manguinhos, Serra - ES, 29173-087</p>\n      </ion-item>\n      <ion-item>\n        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14977.900153717135!2d-40.2171257!3d-20.1975718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafbf9ef51ebb8429!2sInstituto+Federal+do+Esp%C3%ADrito+Santo+(IFES)+-+Campus+Serra!5e0!3m2!1spt-BR!2sbr!4v1510584737591" width="450" height="330" frameborder="0" style="border:0" allowfullscreen></iframe>\n      </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/contact/contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], ContactPage);
@@ -199,7 +196,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/home/home.html"*/'<ion-header>\n    \n  <ion-navbar>\n      <ion-avatar item-start>\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n      </ion-avatar>\n   <ion-title>IFES</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="home">\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/'<ion-header>\n    \n  <ion-navbar>\n      <ion-avatar item-start>\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n      </ion-avatar>\n   <ion-title>IFES</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="home">\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], HomePage);
@@ -369,7 +366,7 @@ var IFESApp = (function () {
     return IFESApp;
 }());
 IFESApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]])
 ], IFESApp);
@@ -384,6 +381,7 @@ IFESApp = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceLogin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Usuario; });
+/* unused harmony export Aluno */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(243);
@@ -454,12 +452,20 @@ var ServiceLogin = (function () {
             console.log("Inicio Post");
             var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
             var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            _this.http.post(_this.API_URL + '/api/usuariosapi', Usuarios, options)
-                .subscribe(function (result) {
+            if (servidor)
+                _this.API_URL = _this.API_URL + '/api/usuariosapi';
+            else
+                _this.API_URL = _this.API_URL + '/api/alunoesapi';
+            console.log("Url Post", _this.API_URL);
+            _this.http.post(_this.API_URL, Usuarios, options).subscribe(function (result) {
                 resolve(result.json());
-                console.log("Fim Post");
-                var resp = new Usuario();
+                console.log("Fim Post", _this.API_URL);
+                if (servidor)
+                    var resp = new Usuario();
                 resp = result.json();
+                if (!servidor)
+                    resp.idusuario = result.json().idaluno;
+                console.log("Fim Post", resp);
                 if (resp != null) {
                     _this.model.email = resp.email;
                     _this.model.idusuario = resp.idusuario;
@@ -516,7 +522,7 @@ var ServiceLogin = (function () {
 }());
 ServiceLogin = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object])
 ], ServiceLogin);
 
 var Usuario = (function () {
@@ -525,6 +531,13 @@ var Usuario = (function () {
     return Usuario;
 }());
 
+var Aluno = (function () {
+    function Aluno() {
+    }
+    return Aluno;
+}());
+
+var _a, _b, _c;
 //# sourceMappingURL=servicelogin.js.map
 
 /***/ }),
@@ -562,7 +575,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n  <!--<ion-tab [root]="tab4Root" tabTitle="Login" tabIcon="unlock"></ion-tab>-->\n  <ion-tab [root]="tab3Root" tabTitle="Contato" tabIcon="contacts"></ion-tab>  \n  <ion-tab [root]="tab2Root" tabTitle="Sobre" tabIcon="information-circle"></ion-tab>  \n</ion-tabs>\n'/*ion-inline-end:"/Users/zion/Documents/IFESApp/IFESApp/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n  <!--<ion-tab [root]="tab4Root" tabTitle="Login" tabIcon="unlock"></ion-tab>-->\n  <ion-tab [root]="tab3Root" tabTitle="Contato" tabIcon="contacts"></ion-tab>  \n  <ion-tab [root]="tab2Root" tabTitle="Sobre" tabIcon="information-circle"></ion-tab>  \n</ion-tabs>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
