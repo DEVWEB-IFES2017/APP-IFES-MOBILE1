@@ -30,19 +30,16 @@ var LoginPage = (function () {
         this.toast = toast;
         this.servicelogin = servicelogin;
         this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+        this.model.servidor = true;
     }
     LoginPage.prototype.login = function () {
         var _this = this;
         console.log("inicio login");
         this.servicelogin.login(this.model.email, this.model.senha, this.model.servidor).then(function (result) {
             _this.toast.create({ message: 'Seja bem vindo ' + result.nome, position: 'botton', duration: 3000 }).present();
-            //this.toast.create({ message: 'Usu�rio logado com sucesso. E-Mail: ' + result.email, position: 'botton', duration: 3000 }).present();
-            //Salvar o token no Ionic Storage para usar em futuras requisi��es.
-            //Redirecionar o usuario para outra tela usando o navCtrl
-            //this.navCtrl.pop();
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_tabs_tabs__["a" /* TabsPage */]);
         }).catch(function (error) {
-            _this.toast.create({ message: 'Falha ao efetuar login, Usu�rio e Senha inv�lidos!!', position: 'botton', duration: 3000 }).present();
+            _this.toast.create({ message: 'Falha ao efetuar login, Usuário e Senha inválidos!!', position: 'botton', duration: 3000 }).present();
         });
     };
     LoginPage.prototype.ionViewDidLoad = function () {
@@ -52,11 +49,12 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="! model.servidor">Servidor</ion-label>\n          <ion-label *ngIf="model.servidor">Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="! model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]) === "function" && _d || Object])
 ], LoginPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -454,12 +452,20 @@ var ServiceLogin = (function () {
             console.log("Inicio Post");
             var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
             var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            _this.http.post(_this.API_URL + '/api/usuariosapi', Usuarios, options)
-                .subscribe(function (result) {
+            if (servidor)
+                _this.API_URL = _this.API_URL + '/api/usuariosapi';
+            else
+                _this.API_URL = _this.API_URL + '/api/alunoesapi';
+            console.log("Url Post", _this.API_URL);
+            _this.http.post(_this.API_URL, Usuarios, options).subscribe(function (result) {
                 resolve(result.json());
-                console.log("Fim Post");
-                var resp = new Usuario();
+                console.log("Fim Post", _this.API_URL);
+                if (servidor)
+                    var resp = new Usuario();
                 resp = result.json();
+                if (!servidor)
+                    resp.idusuario = result.json().idaluno;
+                console.log("Fim Post", resp);
                 if (resp != null) {
                     _this.model.email = resp.email;
                     _this.model.idusuario = resp.idusuario;
@@ -516,7 +522,7 @@ var ServiceLogin = (function () {
 }());
 ServiceLogin = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object])
 ], ServiceLogin);
 
 var Usuario = (function () {
@@ -525,6 +531,7 @@ var Usuario = (function () {
     return Usuario;
 }());
 
+var _a, _b, _c;
 //# sourceMappingURL=servicelogin.js.map
 
 /***/ }),
