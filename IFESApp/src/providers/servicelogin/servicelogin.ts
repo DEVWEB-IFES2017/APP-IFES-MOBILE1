@@ -22,25 +22,12 @@ export class ServiceLogin {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
-      if (servidor)
-        this.API_URL =this.API_URL + '/api/usuariosapi';
-      else
-        this.API_URL =this.API_URL + '/api/alunoesapi';
-
-      console.log("Url Post",this.API_URL );      
-
-      this.http.post(this.API_URL, Usuarios,options).subscribe((result: any) => {
+      this.http.post(this.API_URL + '/api/usuariosapi', Usuarios,options)
+        .subscribe((result: any) => {
           resolve(result.json());
-          console.log("Fim Post",this.API_URL );
-          if (servidor)
-            var resp = new Usuario();
-
+          console.log("Fim Post");
+          var resp = new Usuario();
           resp = result.json();
-          
-          if (!servidor)
-            resp.idusuario = result.json().idaluno;
-
-          console.log("Fim Post",resp);
 
           if (resp !=null){
             this.model.email = resp.email;
@@ -99,14 +86,6 @@ export class ServiceLogin {
 
 export class Usuario {
   idusuario: number;
-  nome:string;
-  email: string;
-  senha: string;
-  servidor: boolean;
-}
-
-export class Aluno {
-  idaluno: number;
   nome:string;
   email: string;
   senha: string;
