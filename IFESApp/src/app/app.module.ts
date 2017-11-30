@@ -11,9 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ServiceLogin } from '../providers/servicelogin/servicelogin';
+import { ServiceLogin , Evento} from '../providers/servicelogin/servicelogin';
 import { HttpModule } from '@angular/http';
-
 
 @NgModule({
   declarations: [
@@ -43,6 +42,7 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     ServiceLogin,
+    Evento,
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
