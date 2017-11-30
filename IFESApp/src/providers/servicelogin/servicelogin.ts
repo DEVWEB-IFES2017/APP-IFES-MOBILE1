@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import {LoadingController} from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class ServiceLogin {
@@ -97,10 +97,68 @@ export class ServiceLogin {
   }
 }
 
+export class Evento {
+  private API_URL = 'http://ifes.azurewebsites.net';
+
+  constructor(public http: Http, public loadingCtrl: LoadingController) 
+  { 
+  }
+
+  GetAgendaSite(id):Promise<string> {
+    return new Promise((resolve, reject) => {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers }); 
+
+    let URL = this.API_URL + '/api/AgendaApi';
+
+    this.http.get(URL,options).subscribe((agenda: any) => {
+       resolve(agenda.json());
+
+      },
+      (error) => {
+        reject(new Agenda());
+      });
+    });
+  }
+
+  public async GetAgenda(id):Promise<Agenda[]> {
+    let loading = this.loadingCtrl.create({
+      content: 'Aquarde....',
+      dismissOnPageChange: true
+      });
+  
+    loading.present();
+      
+    let inf = await this.GetAgendaSite(id);
+    console.log(inf);
+    if (inf){
+      loading.dismiss();        
+      return JSON.parse(inf);
+    }
+    else {
+      loading.dismiss();        
+      return JSON.parse(inf);
+    }
+  }
+
+}
+
 export class Usuario {
   idusuario: number;
   nome:string;
   email: string;
   senha: string;
   servidor: boolean;
+}
+
+export class Agenda {
+  idagenda: number;
+  iddisciplina: number;
+  Disciplina: any;
+  dataevento: string;
+  titulo: string;
+  descricao: string;
+  local: string;
+  idevento:string;
+  hora: string;
 }
