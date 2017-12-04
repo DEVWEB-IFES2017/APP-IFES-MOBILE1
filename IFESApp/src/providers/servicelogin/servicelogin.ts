@@ -97,6 +97,7 @@ export class ServiceLogin {
   }
 }
 
+@Injectable()
 export class Evento {
   private API_URL = 'http://ifes.azurewebsites.net';
 
@@ -110,7 +111,7 @@ export class Evento {
     let options = new RequestOptions({ headers: headers }); 
 
     let URL = this.API_URL + '/api/AgendaApi';
-
+    console.log('inicia o get');
     this.http.get(URL,options).subscribe((agenda: any) => {
        resolve(agenda.json());
 

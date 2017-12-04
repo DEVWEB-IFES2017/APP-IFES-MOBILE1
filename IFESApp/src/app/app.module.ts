@@ -11,10 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ServiceLogin } from '../providers/servicelogin/servicelogin';
+import { ServiceLogin , Evento} from '../providers/servicelogin/servicelogin';
 import { HttpModule } from '@angular/http';
 import{NovoeventoPageModule} from '../pages/novoevento/novoevento.module';
-
 
 @NgModule({
   declarations: [
