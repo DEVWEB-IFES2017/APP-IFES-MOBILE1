@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Agenda, Evento} from '../../providers/servicelogin/servicelogin';
+import { NgModuleCompileResult } from '@angular/compiler/src/ng_module_compiler';
 
 @Component({
   selector: 'page-home',
@@ -18,7 +19,7 @@ export class HomePage {
   currentYear: any;
   currentDate: any;
 
-  dados : any  
+  dados : any;  
 
   constructor(public navCtrl: NavController,evento : Evento) {
     this.monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -32,10 +33,11 @@ export class HomePage {
     //this.dados = JSON.parse(JsonObj);
     console.log('Inicio get Agenda');
     
-    this.dados = evento.GetAgenda(1);
-    
-    console.log('Fim get Agenda',this.dados);
-    this.getDaysOfMonth();    
+      evento.GetAgenda(1).then(resut =>{
+      this.dados = resut;
+      this.getDaysOfMonth();  
+    });  
+     
   }
 
   getDaysOfMonth() {
@@ -98,7 +100,7 @@ export class HomePage {
     for (var i = 0; i < this.dados.length ; i++) {
       item = this.dados[i];
       let stordate =item.dataevento.substring(0,10);
-
+      console.log("DataT",stordate);
       if (stordate === calendar){
         return item.titulo.substring(0,6);
       }
@@ -112,7 +114,7 @@ export class HomePage {
     for (var i = 0; i < this.dados.length ; i++) {
       item = this.dados[i];
       let stordate =item.dataevento.substring(0,10);
-      console.log("Data",item.dataevento,dia,calendar,stordate);
+      console.log("Data",stordate);
       if (stordate === calendar){
         return item.idagenda;
       }

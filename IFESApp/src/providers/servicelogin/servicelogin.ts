@@ -122,7 +122,7 @@ export class Evento {
     });
   }
 
-  public async GetAgenda(id):Promise<Agenda[]> {
+  public async GetAgenda(id):Promise<any> {
     let loading = this.loadingCtrl.create({
       content: 'Aquarde....',
       dismissOnPageChange: true
@@ -131,14 +131,14 @@ export class Evento {
     loading.present();
       
     let inf = await this.GetAgendaSite(id);
-    console.log(inf);
+
     if (inf){
       loading.dismiss();        
-      return JSON.parse(inf);
+      return inf;
     }
     else {
       loading.dismiss();        
-      return JSON.parse(inf);
+      return inf;
     }
   }
 
