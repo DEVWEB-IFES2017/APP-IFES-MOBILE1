@@ -6,8 +6,8 @@ webpackJsonp([1],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_tabs_tabs__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -29,7 +29,7 @@ var LoginPage = (function () {
         this.navParams = navParams;
         this.toast = toast;
         this.servicelogin = servicelogin;
-        this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+        this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["d" /* Usuario */]();
         this.model.servidor = true;
     }
     LoginPage.prototype.login = function () {
@@ -49,12 +49,11 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\login\login.html"*/'source ~/.profile<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Faça seu login</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n\n      <ion-item>\n\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label floating>Informe seu email:</ion-label>\n\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="model.servidor"> \n\n        <ion-label floating>Digite sua senha:</ion-label>\n\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button (click)="login()" unlock full>\n\n      <ion-icon name="unlock"> Entrar</ion-icon>\n\n    </button>   \n\n</ion-content>'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["c" /* ServiceLogin */]])
 ], LoginPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -81,15 +80,18 @@ webpackEmptyAsyncContext.id = 110;
 
 var map = {
 	"../pages/login/login.module": [
-		273,
+		275,
 		0
+	],
+	"../pages/novoevento/novoevento.module": [
+		159
 	]
 };
 function webpackAsyncContext(req) {
 	var ids = map[req];
 	if(!ids)
 		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(ids[0]);
 	});
 };
@@ -107,7 +109,7 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -127,7 +129,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      IFES - Serra\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-list-header>Contatos </ion-list-header>\n    <ion-item>\n      <ion-icon name="contact" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/about/about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      IFES - Serra\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n    <ion-list-header>Contatos </ion-list-header>\n\n    <ion-item>\n\n      <ion-icon name="contact" item-start></ion-icon>\n\n      edimar.analise@gmail.com\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\about\about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], AboutPage);
@@ -142,7 +144,7 @@ AboutPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,7 +164,7 @@ var ContactPage = (function () {
 }());
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contatos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Fale conosco </ion-list-header>\n    <ion-item>\n      <ion-icon name="mail" item-start></ion-icon>\n      edimar.analise@gmail.com\n    </ion-item>\n    <ion-item>\n      <ion-icon name="call" item-start></ion-icon>\n      (27) 3348-9200\n    </ion-item>\n    <ion-item>\n      <ion-icon name="clock" item-start></ion-icon>\n      07h às 22h30m\n    </ion-item>\n    <ion-item>\n      <ion-icon name="pin" item-start></ion-icon>\n      <p>ES-010, Km-6,5 - Manguinhos, Serra - ES, 29173-087</p>\n      </ion-item>\n      <ion-item>\n        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14977.900153717135!2d-40.2171257!3d-20.1975718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafbf9ef51ebb8429!2sInstituto+Federal+do+Esp%C3%ADrito+Santo+(IFES)+-+Campus+Serra!5e0!3m2!1spt-BR!2sbr!4v1510584737591" width="450" height="330" frameborder="0" style="border:0" allowfullscreen></iframe>\n      </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/contact/contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\contact\contact.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Contatos\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-list-header>Fale conosco </ion-list-header>\n\n    <ion-item>\n\n      <ion-icon name="mail" item-start></ion-icon>\n\n      edimar.analise@gmail.com\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-icon name="call" item-start></ion-icon>\n\n      (27) 3348-9200\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-icon name="clock" item-start></ion-icon>\n\n      07h às 22h30m\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-icon name="pin" item-start></ion-icon>\n\n      <p>ES-010, Km-6,5 - Manguinhos, Serra - ES, 29173-087</p>\n\n      </ion-item>\n\n      <ion-item>\n\n        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14977.900153717135!2d-40.2171257!3d-20.1975718!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xafbf9ef51ebb8429!2sInstituto+Federal+do+Esp%C3%ADrito+Santo+(IFES)+-+Campus+Serra!5e0!3m2!1spt-BR!2sbr!4v1510584737591" width="450" height="330" frameborder="0" style="border:0" allowfullscreen></iframe>\n\n      </ion-item>\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\contact\contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], ContactPage);
@@ -177,7 +179,8 @@ ContactPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__novoevento_novoevento__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -189,15 +192,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomePage = (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
     }
+    HomePage.prototype.irparanovoevento = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__novoevento_novoevento__["a" /* NovoeventoPage */]);
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/'<ion-header>\n    \n  <ion-navbar>\n      <ion-avatar item-start>\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n      </ion-avatar>\n   <ion-title>IFES</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="home">\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\home\home.html"*/'<ion-header>\n\n    \n\n  <ion-navbar>\n\n      <ion-avatar item-start>\n\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n\n      </ion-avatar>\n\n   <ion-title>IFES</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="home">\n\n<button (click)=irparanovoevento()>Cadastro de Eventos</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\home\home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], HomePage);
@@ -206,13 +213,100 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 201:
+/***/ 158:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NovoeventoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_servicelogin_servicelogin__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var NovoeventoPage = (function () {
+    function NovoeventoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.model = new __WEBPACK_IMPORTED_MODULE_0__providers_servicelogin_servicelogin__["a" /* Agenda */]();
+        this.model.titulo;
+        this.model.Disciplina;
+        this.model.dataevento;
+        this.model.descricao;
+        this.model.local;
+    }
+    NovoeventoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NovoeventoPage');
+    };
+    NovoeventoPage.prototype.insert = function () {
+    };
+    return NovoeventoPage;
+}());
+NovoeventoPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+        selector: 'page-novoevento',template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\novoevento\novoevento.html"*/'<!--\n\n  Generated template for the NovoeventoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Cadastrar Novo Evento</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label floating>Grupo:</ion-label>\n\n      <ion-list type="list-inset" [(ngModel)]="model.Grupo"></ion-list>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Título do Evento:</ion-label>\n\n      <ion-input type="text" [(ngModel)]=model.titulo></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Breve descrição:</ion-label>\n\n      <ion-input type="text" [(ngModel)]="model.descricao"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Data (hh:mm):</ion-label>\n\n      <ion-input type="text" data-ng-form="dd/mm/yyyy hh:mm" [(ngModel)]="model.data"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Local do Evento:</ion-label>\n\n      <ion-input type="text" [(ngModel)]="model.Local"></ion-input>\n\n    </ion-item>\n\n\n\n\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\novoevento\novoevento.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]])
+], NovoeventoPage);
+
+//# sourceMappingURL=novoevento.js.map
+
+/***/ }),
+
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(220);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoeventoPageModule", function() { return NovoeventoPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__novoevento__ = __webpack_require__(158);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var NovoeventoPageModule = (function () {
+    function NovoeventoPageModule() {
+    }
+    return NovoeventoPageModule;
+}());
+NovoeventoPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__novoevento__["a" /* NovoeventoPage */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__novoevento__["a" /* NovoeventoPage */]),
+        ],
+    })
+], NovoeventoPageModule);
+
+//# sourceMappingURL=novoevento.module.js.map
+
+/***/ }),
+
+/***/ 203:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(222);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -220,31 +314,33 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 220:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_about_about__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contact_contact__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_novoevento_novoevento_module__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -279,10 +375,12 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_13__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* IFESApp */], {}, {
                 links: [
-                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/novoevento/novoevento.module#NovoeventoPageModule', name: 'NovoeventoPage', segment: 'novoevento', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["a" /* IonicStorageModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_14__pages_novoevento_novoevento_module__["NovoeventoPageModule"]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
         entryComponents: [
@@ -296,7 +394,8 @@ AppModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["a" /* ServiceLogin */],
+            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["c" /* ServiceLogin */],
+            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["b" /* Evento */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* LOCALE_ID */], useValue: 'pt-BR' },
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
         ]
@@ -307,18 +406,18 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 264:
+/***/ 266:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IFESApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -341,7 +440,7 @@ var IFESApp = (function () {
         var _this = this;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
         platform.ready().then(function () {
-            _this.usuario = new __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+            _this.usuario = new __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["d" /* Usuario */]();
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
@@ -367,27 +466,29 @@ var IFESApp = (function () {
     return IFESApp;
 }());
 IFESApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\app\app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["c" /* ServiceLogin */]])
 ], IFESApp);
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 40:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceLogin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Usuario; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ServiceLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Evento; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Usuario; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Agenda; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -522,8 +623,62 @@ var ServiceLogin = (function () {
 }());
 ServiceLogin = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
 ], ServiceLogin);
+
+var Evento = (function () {
+    function Evento(http, loadingCtrl) {
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.API_URL = 'http://ifes.azurewebsites.net';
+    }
+    Evento.prototype.GetAgendaSite = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var URL = _this.API_URL + '/api/AgendaApi';
+            _this.http.get(URL, options).subscribe(function (agenda) {
+                resolve(agenda.json());
+            }, function (error) {
+                reject(new Agenda());
+            });
+        });
+    };
+    Evento.prototype.GetAgenda = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var loading, inf;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        loading = this.loadingCtrl.create({
+                            content: 'Aquarde....',
+                            dismissOnPageChange: true
+                        });
+                        loading.present();
+                        return [4 /*yield*/, this.GetAgendaSite(id)];
+                    case 1:
+                        inf = _a.sent();
+                        console.log(inf);
+                        if (inf) {
+                            loading.dismiss();
+                            return [2 /*return*/, JSON.parse(inf)];
+                        }
+                        else {
+                            loading.dismiss();
+                            return [2 /*return*/, JSON.parse(inf)];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return Evento;
+}());
+Evento = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
+], Evento);
 
 var Usuario = (function () {
     function Usuario() {
@@ -531,7 +686,12 @@ var Usuario = (function () {
     return Usuario;
 }());
 
-var _a, _b, _c;
+var Agenda = (function () {
+    function Agenda() {
+    }
+    return Agenda;
+}());
+
 //# sourceMappingURL=servicelogin.js.map
 
 /***/ }),
@@ -569,7 +729,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n  <!--<ion-tab [root]="tab4Root" tabTitle="Login" tabIcon="unlock"></ion-tab>-->\n  <ion-tab [root]="tab3Root" tabTitle="Contato" tabIcon="contacts"></ion-tab>  \n  <ion-tab [root]="tab2Root" tabTitle="Sobre" tabIcon="information-circle"></ion-tab>  \n</ion-tabs>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Inicio" tabIcon="home"></ion-tab>\n\n  <!--<ion-tab [root]="tab4Root" tabTitle="Login" tabIcon="unlock"></ion-tab>-->\n\n  <ion-tab [root]="tab3Root" tabTitle="Contato" tabIcon="contacts"></ion-tab>  \n\n  <ion-tab [root]="tab2Root" tabTitle="Sobre" tabIcon="information-circle"></ion-tab>  \n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Daniele R N Garcia\Documents\PROJETOS-IFES\IONIC\APPIFES-MOBILE\IFESApp\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -578,5 +738,5 @@ TabsPage = __decorate([
 
 /***/ })
 
-},[201]);
+},[203]);
 //# sourceMappingURL=main.js.map
