@@ -29,7 +29,7 @@ var LoginPage = (function () {
         this.navParams = navParams;
         this.toast = toast;
         this.servicelogin = servicelogin;
-        this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+        this.model = new __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["c" /* Usuario */]();
         this.model.servidor = true;
     }
     LoginPage.prototype.login = function () {
@@ -49,12 +49,11 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'source ~/.profile<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Faça seu login</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-list>\n      <ion-item>\n          <ion-label *ngIf="model.servidor">Logar como Servidor</ion-label>\n          <ion-label *ngIf="! model.servidor">Logar como Aluno</ion-label>\n          <ion-checkbox color="dark" checked="false" [(ngModel)]="model.servidor"></ion-checkbox>\n      </ion-item>\n      <ion-item>\n        <ion-label floating>Informe seu email:</ion-label>\n        <ion-input type="email" [(ngModel)]="model.email"></ion-input>\n      </ion-item>\n      <ion-item *ngIf="model.servidor"> \n        <ion-label floating>Digite sua senha:</ion-label>\n        <ion-input type="password" [(ngModel)]="model.senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button (click)="login()" unlock full>\n      <ion-icon name="unlock"> Entrar</ion-icon>\n    </button>   \n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["b" /* ServiceLogin */]])
 ], LoginPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -178,6 +177,7 @@ ContactPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__ = __webpack_require__(40);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -189,17 +189,99 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomePage = (function () {
-    function HomePage(navCtrl) {
+    function HomePage(navCtrl, evento) {
         this.navCtrl = navCtrl;
+        this.monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        this.date = new Date();
+        this.currentMonth = this.monthNames[this.date.getMonth()];
+        this.currentMonth = this.monthNames[this.date.getMonth()];
+        this.currentMonth = this.monthNames[this.date.getMonth()];
+        this.currentMonth = this.monthNames[this.date.getMonth()];
+        //let JsonObj = '[{"idagenda":"1","data":"2017-11-29","titulo":"Prova1","descricao":"Prova de matemática1"},{"idagenda":"2","data":"2017-11-30","titulo":"Prova2","descricao":"Prova de matemática2"},{"idagenda":"3","data":"2017-11-30","titulo":"Prova3","descricao":"Prova de matemática3"}]';
+        //this.dados = JSON.parse(JsonObj);
+        console.log('Inicio get Agenda');
+        this.dados = evento.GetAgenda(1);
+        console.log('Fim get Agenda', this.dados);
+        this.getDaysOfMonth();
     }
+    HomePage.prototype.getDaysOfMonth = function () {
+        this.daysInThisMonth = new Array();
+        this.daysInLastMonth = new Array();
+        this.daysInNextMonth = new Array();
+        this.currentYear = this.date.getFullYear();
+        this.currentDate = new Date().getDate();
+        this.currentMes = this.date.getMonth();
+        var firstDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
+        var prevNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
+        for (var i = prevNumOfDays - (firstDayThisMonth - 1); i <= prevNumOfDays; i++) {
+            this.daysInLastMonth.push(i);
+        }
+        var thisNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
+        for (var y = 0; y < thisNumOfDays; y++) {
+            this.daysInThisMonth.push(y + 1);
+        }
+        var lastDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDay();
+        //var nextNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0).getDate();
+        for (var w = 0; w < (6 - lastDayThisMonth); w++) {
+            this.daysInNextMonth.push(w + 1);
+        }
+        var totalDays = this.daysInLastMonth.length + this.daysInThisMonth.length + this.daysInNextMonth.length;
+        if (totalDays < 36) {
+            for (var x = (7 - lastDayThisMonth); x < ((7 - lastDayThisMonth) + 7); x++) {
+                this.daysInNextMonth.push(x);
+            }
+        }
+        this.currentMonth = this.monthNames[this.date.getMonth()];
+    };
+    //Now, add the function for previous month button action.
+    HomePage.prototype.goToLastMonth = function () {
+        this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
+        this.getDaysOfMonth();
+    };
+    //Also for the next month button action.  
+    HomePage.prototype.goToNextMonth = function () {
+        this.date = new Date(this.date.getFullYear(), this.date.getMonth() + 2, 0);
+        this.getDaysOfMonth();
+    };
+    HomePage.prototype.OpenEvento = function (id) {
+        console.log("Data", id);
+    };
+    HomePage.prototype.TemEventoTitulo = function (dia) {
+        var item;
+        this.date = new Date(this.currentYear, this.currentMes, dia, 0, 0, 0, 0);
+        var calendar = this.date.toISOString().substring(0, 10);
+        for (var i = 0; i < this.dados.length; i++) {
+            item = this.dados[i];
+            var stordate = item.dataevento.substring(0, 10);
+            if (stordate === calendar) {
+                return item.titulo.substring(0, 6);
+            }
+        }
+    };
+    HomePage.prototype.TemEventoId = function (dia) {
+        var item;
+        this.date = new Date(this.currentYear, this.currentMes, dia, 0, 0, 0, 0);
+        var calendar = this.date.toISOString().substring(0, 10);
+        for (var i = 0; i < this.dados.length; i++) {
+            item = this.dados[i];
+            var stordate = item.dataevento.substring(0, 10);
+            console.log("Data", item.dataevento, dia, calendar, stordate);
+            if (stordate === calendar) {
+                return item.idagenda;
+            }
+            else
+                return null;
+        }
+    };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/'<ion-header>\n    \n  <ion-navbar>\n      <ion-avatar item-start>\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n      </ion-avatar>\n   <ion-title>IFES</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="home">\n\n</ion-content>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/'<ion-header>\n    \n  <ion-navbar>\n      <ion-avatar item-start>\n      <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">\n      </ion-avatar>\n   <ion-title>IFES - Eventos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="calendar-header">\n    <ion-row class="calendar-month">\n      <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>\n      <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>\n      <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>\n    </ion-row>\n  </div>\n  <div class="calendar-body">\n    <ion-grid>\n      <ion-row class="calendar-weekday">\n        <ion-col>Dom</ion-col>\n        <ion-col>Seg</ion-col>\n        <ion-col>Ter</ion-col>\n        <ion-col>Qua</ion-col>\n        <ion-col>Qui</ion-col>\n        <ion-col>Sex</ion-col>\n        <ion-col>Sab</ion-col>\n      </ion-row>\n      <ion-row class="calendar-date">\n        <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>\n        <ion-col col-1 *ngFor="let day of daysInThisMonth">\n          <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>\n          <button (click)="OpenEvento(TemEventoId(day))" class="eventonew" *ngIf="(currentDate === day) && (TemEventoId(day)!=null)">{{TemEventoTitulo(day)}}</button>\n          <ng-template #otherDate class="otherDate">{{day}}\n              <button *ngIf="(TemEventoId(day)!=null)" (click)="OpenEvento(TemEventoId(day))" class="eventonew">{{TemEventoTitulo(day)}}</button>\n          </ng-template>\n        </ion-col>\n        <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicelogin_servicelogin__["a" /* Evento */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
@@ -296,7 +378,8 @@ AppModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["a" /* ServiceLogin */],
+            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["b" /* ServiceLogin */],
+            __WEBPACK_IMPORTED_MODULE_12__providers_servicelogin_servicelogin__["a" /* Evento */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* LOCALE_ID */], useValue: 'pt-BR' },
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
         ]
@@ -335,13 +418,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var IFESApp = (function () {
     function IFESApp(platform, statusBar, splashScreen, servicelogin) {
         var _this = this;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
         platform.ready().then(function () {
-            _this.usuario = new __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["b" /* Usuario */]();
+            _this.usuario = new __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["c" /* Usuario */]();
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
@@ -369,7 +451,7 @@ var IFESApp = (function () {
 IFESApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/zion/Documents/APP-IFES-MOBILE/IFESApp/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["a" /* ServiceLogin */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6__providers_servicelogin_servicelogin__["b" /* ServiceLogin */]])
 ], IFESApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -380,8 +462,10 @@ IFESApp = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceLogin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Usuario; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ServiceLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Evento; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Usuario; });
+/* unused harmony export Agenda */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(243);
@@ -522,8 +606,63 @@ var ServiceLogin = (function () {
 }());
 ServiceLogin = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
 ], ServiceLogin);
+
+var Evento = (function () {
+    function Evento(http, loadingCtrl) {
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.API_URL = 'http://ifes.azurewebsites.net';
+    }
+    Evento.prototype.GetAgendaSite = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var URL = _this.API_URL + '/api/AgendaApi';
+            console.log('inicia o get');
+            _this.http.get(URL, options).subscribe(function (agenda) {
+                resolve(agenda.json());
+            }, function (error) {
+                reject(new Agenda());
+            });
+        });
+    };
+    Evento.prototype.GetAgenda = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var loading, inf;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        loading = this.loadingCtrl.create({
+                            content: 'Aquarde....',
+                            dismissOnPageChange: true
+                        });
+                        loading.present();
+                        return [4 /*yield*/, this.GetAgendaSite(id)];
+                    case 1:
+                        inf = _a.sent();
+                        console.log(inf);
+                        if (inf) {
+                            loading.dismiss();
+                            return [2 /*return*/, JSON.parse(inf)];
+                        }
+                        else {
+                            loading.dismiss();
+                            return [2 /*return*/, JSON.parse(inf)];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return Evento;
+}());
+Evento = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["e" /* LoadingController */]])
+], Evento);
 
 var Usuario = (function () {
     function Usuario() {
@@ -531,7 +670,12 @@ var Usuario = (function () {
     return Usuario;
 }());
 
-var _a, _b, _c;
+var Agenda = (function () {
+    function Agenda() {
+    }
+    return Agenda;
+}());
+
 //# sourceMappingURL=servicelogin.js.map
 
 /***/ }),

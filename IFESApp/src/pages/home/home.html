@@ -4,10 +4,40 @@
       <ion-avatar item-start>
       <img alt="logo" height="40" src="../assets/imgs/LogoIFES.png">
       </ion-avatar>
-   <ion-title>IFES</ion-title>
+   <ion-title>IFES - Eventos</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="home">
-
+<ion-content padding>
+  <div class="calendar-header">
+    <ion-row class="calendar-month">
+      <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+      <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+      <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+    </ion-row>
+  </div>
+  <div class="calendar-body">
+    <ion-grid>
+      <ion-row class="calendar-weekday">
+        <ion-col>Dom</ion-col>
+        <ion-col>Seg</ion-col>
+        <ion-col>Ter</ion-col>
+        <ion-col>Qua</ion-col>
+        <ion-col>Qui</ion-col>
+        <ion-col>Sex</ion-col>
+        <ion-col>Sab</ion-col>
+      </ion-row>
+      <ion-row class="calendar-date">
+        <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+        <ion-col col-1 *ngFor="let day of daysInThisMonth">
+          <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+          <button (click)="OpenEvento(TemEventoId(day))" class="eventonew" *ngIf="(currentDate === day) && (TemEventoId(day)!=null)">{{TemEventoTitulo(day)}}</button>
+          <ng-template #otherDate class="otherDate">{{day}}
+              <button *ngIf="(TemEventoId(day)!=null)" (click)="OpenEvento(TemEventoId(day))" class="eventonew">{{TemEventoTitulo(day)}}</button>
+          </ng-template>
+        </ion-col>
+        <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
