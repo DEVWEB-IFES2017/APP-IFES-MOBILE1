@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceLogin , Evento} from '../providers/servicelogin/servicelogin';
 import { HttpModule } from '@angular/http';
+import{NovoeventoPageModule} from '../pages/novoevento/novoevento.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(IFESApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    NovoeventoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

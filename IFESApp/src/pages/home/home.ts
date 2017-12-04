@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NovoeventoPage } from '../novoevento/novoevento';
 import { Agenda, Evento} from '../../providers/servicelogin/servicelogin';
 import { NgModuleCompileResult } from '@angular/compiler/src/ng_module_compiler';
 
@@ -74,6 +75,12 @@ export class HomePage {
     this.currentMonth = this.monthNames[this.date.getMonth()];
   }
 
+
+  irparanovoevento(){
+    this.navCtrl.setRoot(NovoeventoPage);
+  }
+
+
   //Now, add the function for previous month button action.
   
   goToLastMonth() {
@@ -121,6 +128,7 @@ export class HomePage {
       else
         return null;
     }
+
   }
 }
 
