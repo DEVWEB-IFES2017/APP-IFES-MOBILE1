@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NovoeventoPage } from '../novoevento/novoevento';
 import { Agenda, Evento} from '../../providers/servicelogin/servicelogin';
-import { NgModuleCompileResult } from '@angular/compiler/src/ng_module_compiler';
+
 
 @Component({
   selector: 'page-home',
@@ -121,7 +121,7 @@ export class HomePage {
     for (var i = 0; i < this.dados.length ; i++) {
       item = this.dados[i];
       let stordate =item.dataevento.substring(0,10);
-      console.log("Data",stordate);
+      console.log("Data",stordate,item);
       if (stordate === calendar){
         return item.idagenda;
       }
