@@ -33,12 +33,12 @@
            <ion-col col-1 *ngFor="let day of daysInThisMonth">            
               <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}
                 <ion-col col-1 *ngFor="let evento of TemEventoId(day)"> 
-                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo}}</button>
+                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo | slice:0:5}}</button>
                 </ion-col>
               </span>  
               <ng-template #otherDate class="otherDate">{{day}}
                 <ion-col col-1 *ngFor="let evento of TemEventoId(day)"> 
-                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo}}</button>
+                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo | slice:0:5}}</button>
                 </ion-col>
               </ng-template>
           </ion-col>

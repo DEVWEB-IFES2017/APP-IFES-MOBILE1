@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { NovoeventoPage } from '../novoevento/novoevento';
 import { Agenda, Evento } from '../../providers/servicelogin/servicelogin';
 import { List } from 'linqts';
+import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'page-home',
