@@ -49,9 +49,11 @@ export class HomePage {
     var prevNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
 
     this.evento.GetAgenda(1).then(resut => {
-      let dad = new List<Agenda>(resut).Where(data => data.dataevento.substring(0, 7) == this.date.toISOString().substring(0, 7));
+
+      this.dados = new List<Agenda>(resut).Where(data => data.dataevento.substring(0, 7) == this.date.toISOString().substring(0, 7)).ToArray();
       
-      this.dados = dad;
+      console.log(this.dados);
+
       for (var i = prevNumOfDays - (firstDayThisMonth - 1); i <= prevNumOfDays; i++) {
         this.daysInLastMonth.push(i);
       }
@@ -99,36 +101,15 @@ export class HomePage {
     console.log("Data", id);
   }
 
-  TemEventoTitulo(dia: number) {
-    var item: Agenda;
-    this.date = new Date(this.currentYear, this.currentMes, dia, 0, 0, 0, 0);
-    let calendar = this.date.toISOString().substring(0, 10);
-
-    this.dados.forEach((i) => {
-      item = i;
-      let stordate = item.dataevento.substring(0, 10);
-
-      if (stordate === calendar) {
-        return item.titulo.substring(0, 6);
-      }
-    });
-  }
-
   TemEventoId(dia: number) {
-    var item: Agenda;
+    var item: Agenda[];
     this.date = new Date(this.currentYear, this.currentMes, dia, 0, 0, 0, 0);
     let calendar = this.date.toISOString().substring(0, 10);
-
-    this.dados.forEach((i) => {
-      item = i;
-      let stordate = item.dataevento.substring(0, 10);
-      console.log("Data", stordate, calendar);
-      if (stordate === calendar) {
-        return item.idagenda;
-      }
-      else
-        return null;
-    });
+    
+    var tmp = new List<Agenda>(this.dados).Where(data => data.dataevento.substring(0, 10) == calendar).ToArray();
+    
+    item = tmp;
+    return item;
   }
 }
 

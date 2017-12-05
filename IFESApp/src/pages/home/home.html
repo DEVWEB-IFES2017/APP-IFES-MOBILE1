@@ -8,7 +8,6 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   
   <div class="calendar-header">
@@ -31,22 +30,21 @@
       </ion-row>
       <ion-row class="calendar-date">
         <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
-        <ion-col col-1 *ngFor="let day of daysInThisMonth">
-          <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
-          <button (click)="OpenEvento(TemEventoId(day))" class="eventonew" *ngIf="(currentDate === day) && (TemEventoId(day)!=null)">{{TemEventoTitulo(day)}}</button>
-          <ng-template #otherDate class="otherDate">{{day}}
-              <button *ngIf="(TemEventoId(day)!=null)" (click)="OpenEvento(TemEventoId(day))" class="eventonew">{{TemEventoTitulo(day)}}</button>
-          </ng-template>
-        </ion-col>
+           <ion-col col-1 *ngFor="let day of daysInThisMonth">            
+              <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}
+                <ion-col col-1 *ngFor="let evento of TemEventoId(day)"> 
+                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo}}</button>
+                </ion-col>
+              </span>  
+              <ng-template #otherDate class="otherDate">{{day}}
+                <ion-col col-1 *ngFor="let evento of TemEventoId(day)"> 
+                   <button (click)="OpenEvento(evento.idagenda)" class="eventonew">{{evento.titulo}}</button>
+                </ion-col>
+              </ng-template>
+          </ion-col>
         <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
       </ion-row>
     </ion-grid>
-    <ion-fab right bottom>
-        <button ion-fab color="light" (click)="irparanovoevento()"><ion-icon name="add"></ion-icon></button>
-      </ion-fab>
   </div>
-
-
-  
 </ion-content>
 
