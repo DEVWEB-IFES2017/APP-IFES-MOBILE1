@@ -9,83 +9,82 @@ export class ServiceLogin {
   private API_URL = 'http://ifes.azurewebsites.net';
   model: Usuario;
 
-  constructor(private db: Storage,public http: Http, public loadingCtrl: LoadingController) 
-  { 
+  constructor(private db: Storage, public http: Http, public loadingCtrl: LoadingController) {
     this.model = new Usuario();
   }
- 
-    login(email: string, senha: string, servidor:boolean) {      
+
+  login(email: string, senha: string, servidor: boolean) {
     return new Promise((resolve, reject) => {
-      var Usuarios = {email: email, senha: senha};
+      var Usuarios = { email: email, senha: senha };
       console.log("Inicio Post");
 
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
       if (servidor)
-        this.API_URL =this.API_URL + '/api/usuariosapi';
+        this.API_URL = this.API_URL + '/api/usuariosapi';
       else
-        this.API_URL =this.API_URL + '/api/alunoesapi';
+        this.API_URL = this.API_URL + '/api/alunoesapi';
 
-      console.log("Url Post",this.API_URL );      
+      console.log("Url Post", this.API_URL);
 
-      this.http.post(this.API_URL, Usuarios,options).subscribe((result: any) => {
-          resolve(result.json());
-          console.log("Fim Post",this.API_URL );
-          if (servidor)
-            var resp = new Usuario();
+      this.http.post(this.API_URL, Usuarios, options).subscribe((result: any) => {
+        resolve(result.json());
+        console.log("Fim Post", this.API_URL);
+        if (servidor)
+          var resp = new Usuario();
 
-          resp = result.json();
-          
-          if (!servidor)
-            resp.idusuario = result.json().idaluno;
+        resp = result.json();
 
-          console.log("Fim Post",resp);
+        if (!servidor)
+          resp.idusuario = result.json().idaluno;
 
-          if (resp !=null){
-            this.model.email = resp.email;
-            this.model.idusuario = resp.idusuario;
-            this.model.nome = resp.nome;
-            this.model.senha = "";
-            this.model.servidor = servidor;
-          }
-          
-          console.log(this.model);
+        console.log("Fim Post", resp);
 
-          if (this.model.email == Usuarios.email){
-            this.insert(this.model) 
-          }
-        },
+        if (resp != null) {
+          this.model.email = resp.email;
+          this.model.idusuario = resp.idusuario;
+          this.model.nome = resp.nome;
+          this.model.senha = "";
+          this.model.servidor = servidor;
+        }
+
+        console.log(this.model);
+
+        if (this.model.email == Usuarios.email) {
+          this.insert(this.model)
+        }
+      },
         (error) => {
           reject(error.json());
         });
     });
-  } 
+  }
 
   public insert(usu: Usuario) {
-    console.log("Inserindo no banco...",usu);
-    this.db.set('usuario',  JSON.stringify(usu));
+    console.log("Inserindo no banco...", usu);
+    this.db.set('usuario', JSON.stringify(usu));
     console.log("Inseriu...");
-  }  
+  }
 
-  public async Usuarioget():Promise<Usuario> {
-    console.log("Pesquisando no banco..."); 
-    let usuario = new Usuario();       
+  public async Usuarioget(): Promise<Usuario> {
+    console.log("Pesquisando no banco...");
+    let usuario = new Usuario();
     usuario.idusuario = 0;
 
     console.log("Pesquisa Usuario");
-    
+
     let loading = this.loadingCtrl.create({
       content: 'Aquarde....',
       dismissOnPageChange: true
-      
+
     });
 
     loading.present();
-    
+
     let user = await this.db.get('usuario');
 
-    if (user){
+    if (user) {
       loading.dismiss();
       return JSON.parse(user);
     }
@@ -93,7 +92,7 @@ export class ServiceLogin {
       loading.dismiss();
       return usuario;
     }
-    
+
   }
 }
 
@@ -101,43 +100,61 @@ export class ServiceLogin {
 export class Evento {
   private API_URL = 'http://ifes.azurewebsites.net';
 
-  constructor(public http: Http, public loadingCtrl: LoadingController) 
-  { 
+  constructor(public http: Http, public loadingCtrl: LoadingController) {
   }
 
-  GetAgendaSite(id):Promise<string> {
+  Salvarevento(agenda: Agenda) {
     return new Promise((resolve, reject) => {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers }); 
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
 
-    let URL = this.API_URL + '/api/AgendaApi';
-    console.log('inicia o get');
-    this.http.get(URL,options).subscribe((agenda: any) => {
-       resolve(agenda.json());
+
+      this.API_URL = this.API_URL + '/api/AgendaApi';
+      this.http.post(this.API_URL, agenda, options).subscribe((result: any) => {
+        resolve(result.json());
 
       },
-      (error) => {
-        reject(new Agenda());
-      });
+        (error) => {
+          reject(error.json());
+        });
+    });
+
+  }
+
+
+  GetAgendaSite(id): Promise<string> {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      let URL = this.API_URL + '/api/AgendaApi';
+      console.log('inicia o get');
+      this.http.get(URL, options).subscribe((agenda: any) => {
+        resolve(agenda.json());
+
+      },
+        (error) => {
+          reject(new Agenda());
+        });
     });
   }
 
-  public async GetAgenda(id):Promise<any> {
+  public async GetAgenda(id): Promise<any> {
     let loading = this.loadingCtrl.create({
       content: 'Aquarde....',
       dismissOnPageChange: true
-      });
-  
+    });
+
     loading.present();
-      
+
     let inf = await this.GetAgendaSite(id);
 
-    if (inf){
-      loading.dismiss();        
+    if (inf) {
+      loading.dismiss();
       return inf;
     }
     else {
-      loading.dismiss();        
+      loading.dismiss();
       return inf;
     }
   }
@@ -146,7 +163,7 @@ export class Evento {
 
 export class Usuario {
   idusuario: number;
-  nome:string;
+  nome: string;
   email: string;
   senha: string;
   servidor: boolean;
@@ -160,7 +177,7 @@ export class Agenda {
   titulo: string;
   descricao: string;
   local: string;
-  idevento:string;
+  idevento: string;
   hora: string;
 }
 

@@ -31,25 +31,27 @@
 
     <ion-item>
       <ion-label floating>Título do Evento:</ion-label>
-      <ion-input name="obj2" type="text" [(ngModel)]="model.titulo"></ion-input>
+      <ion-input name="titulo" type="text" [(ngModel)]="model.titulo"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Breve descrição:</ion-label>
-      <ion-input name="obj3" type="text" [(ngModel)]="model.descricao"></ion-input>
+      <ion-input name="descricao" type="text" [(ngModel)]="model.descricao"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Data (hh:mm):</ion-label>
-      <ion-input name="obj4" type="text" data-ng-form="dd/mm/yyyy hh:mm" [(ngModel)]="model.data"></ion-input>
+      <ion-label stacked>Data (hh:mm):</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="dataevento" min="2017" max="2020" [(ngModel)]="model.dataevento"></ion-datetime>
     </ion-item>
+
+
 
     <ion-item>
       <ion-label floating>Local do Evento:</ion-label>
-      <ion-input name="obj5" type="text" [(ngModel)]="model.Local"></ion-input>
+      <ion-input name="local" type="text" [(ngModel)]="model.local"></ion-input>
     </ion-item>
 
-    <button ion-button block (click)="save()">Salvar</button>
+    <div><button margin-top=5px ion-button block (click)="save(model)">Salvar</button></div>
       
   </ion-list>
 
