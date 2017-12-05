@@ -1,3 +1,49 @@
 IFESApp/www/build/main.js
 .vscode/settings.json
 IFESApp/www/build/main.js.map
+
+* ~
+* .sw [mnpcod]
+*.registro
+* .lock
+* .tmp
+* .tmp. *
+log.txt
+* .sublime-project
+* .sublime-workspace
+
+.idéia/
+.sourcemaps /
+.vscode /
+.sass-cache /
+.versões /
+cobertura/
+dist /
+node_modules /
+tmp /
+temp /
+$ RECYCLE.BIN /
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.env
+
+.package.tmp.json
+
+src / themes / version.scss
+scripts / e2e / webpackEntryPoints.json
+scripts / build / e2e-generated-tsconfig.json
+* .css.ts
+
+# material de demonstração
+demos / node_modules
+demos / polyfills
+demos / css
+demos / fonts
+demos / src / ** / *. js
+mapa de demos / src / ** / *.
+demos / src / ** / *. ngfactory.ts
+demos / src / ** / *. d.ts
+demos / src / ** / *. metadata.json
+demos / src / ** / *. css.shim.ts
