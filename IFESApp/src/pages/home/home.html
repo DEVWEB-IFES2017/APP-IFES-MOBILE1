@@ -10,7 +10,7 @@
 
 
 <ion-content padding>
-    <button (click)=irparanovoevento()>Cadastro de Eventos</button> 
+  
   <div class="calendar-header">
     <ion-row class="calendar-month">
       <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
@@ -41,6 +41,12 @@
         <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
       </ion-row>
     </ion-grid>
+    <ion-fab right bottom>
+        <button ion-fab color="light" (click)="irparanovoevento()"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
   </div>
+
+
+  
 </ion-content>
 

@@ -16,32 +16,42 @@
 <ion-content padding>
 
   <ion-list>
+    <!--ion-item>
+      <ion-label floating>Grupo:</ion-label>
+      <ion-list name="obj1" type="list-inset" [(ngModel)]="model.Disciplina"></ion-list>
+    </ion-item-->
+
     <ion-item>
       <ion-label floating>Grupo:</ion-label>
-      <ion-list type="list-inset" [(ngModel)]="model.Grupo"></ion-list>
+      <ion-select name="obj1" [(ngModel)]="model.iddisciplina">
+        <ion-option *ngFor="let item of model.Disciplina" value="{{ item.iddisciplina }}">{{ item.disciplina}}</ion-option>
+      </ion-select>
     </ion-item>
+
 
     <ion-item>
       <ion-label floating>Título do Evento:</ion-label>
-      <ion-input type="text" [(ngModel)]=model.titulo></ion-input>
+      <ion-input name="obj2" type="text" [(ngModel)]="model.titulo"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Breve descrição:</ion-label>
-      <ion-input type="text" [(ngModel)]="model.descricao"></ion-input>
+      <ion-input name="obj3" type="text" [(ngModel)]="model.descricao"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Data (hh:mm):</ion-label>
-      <ion-input type="text" data-ng-form="dd/mm/yyyy hh:mm" [(ngModel)]="model.data"></ion-input>
+      <ion-input name="obj4" type="text" data-ng-form="dd/mm/yyyy hh:mm" [(ngModel)]="model.data"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Local do Evento:</ion-label>
-      <ion-input type="text" [(ngModel)]="model.Local"></ion-input>
+      <ion-input name="obj5" type="text" [(ngModel)]="model.Local"></ion-input>
     </ion-item>
 
-
+    <button ion-button block (click)="save()">Salvar</button>
+      
   </ion-list>
+
 
 </ion-content>
