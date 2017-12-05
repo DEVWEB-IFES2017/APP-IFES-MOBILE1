@@ -163,3 +163,9 @@ export class Agenda {
   idevento:string;
   hora: string;
 }
+
+export class Disciplina {
+  iddisciplina: number;
+  id_usuario: number;
+  disciplina: string;
+}
