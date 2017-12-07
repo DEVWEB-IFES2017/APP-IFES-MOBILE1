@@ -1,49 +1,96 @@
-IFESApp/www/build/main.js
-.vscode/settings.json
-IFESApp/www/build/main.js.map
 
+# Criado por https://www.gitignore.io/api/node,ionic3
+
+### Ionic3 ###
+# Logar um dado tmp
 * ~
 * .sw [mnpcod]
 *.registro
-* .lock
 * .tmp
 * .tmp. *
 log.txt
-* .sublime-project
-* .sublime-workspace
 
-.idéia/
-.sourcemaps /
-.vscode /
-.sass-cache /
-.versões /
-cobertura/
-dist /
+# Arquivos NPM (Node Package Manager)
+npm-debug.log *
 node_modules /
 tmp /
 temp /
-$ RECYCLE.BIN /
 
+# Arquivos de cache do pré-processador
+.sourcemaps /
+.sass-cache /
+.tmp /
+ganchos /
+
+# Ionic 3 plugins files
+plataformas /
+plugins /
+plugins / android.json
+plugins / ios.json
+www /
+
+# Dados do lixo
+$ RECYCLE.BIN /
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+### Nó ###
+# Logs
+logs
+fio-debug.log *
+fio-erro.log *
+
+# Dados de tempo de execução
+pids
+* .pid
+*.semente
+* .pid.lock
+
+# Diretório de bibliotecas instrumentadas geradas por jscoverage / JSCover
+lib-cov
+
+# Diretório de cobertura usado por ferramentas como istanbul
+cobertura
+
+cobertura do teste # nyc
+.nyc_output
+
+# Grunt armazenamento intermediário (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunhido
+
+# Diretório de dependência do Bower (https://bower.io/)
+Bower_components
+
+# configuração node-waf
+.lock-wscript
+
+# Complementos binários compilados (http://nodejs.org/api/addons.html)
+construir / liberar
+
+# Diretórios de dependência
+jspm_packages /
+
+# Arquivos de declaração de tipos de arquivos v1
+tipagens /
+
+# Diretório de cache npm opcional
+.npm
+
+# Eslint opcional
+.eslintcache
+
+# Histórico opcional do REPL
+.node_repl_history
+
+# Saída do pacote 'npm'
+* .tgz
+
+# Arquivo de integridade do fio
+.yarn-integridade
+
+# arquivo de variáveis ​​de ambiente dotenv
 .env
 
-.package.tmp.json
 
-src / themes / version.scss
-scripts / e2e / webpackEntryPoints.json
-scripts / build / e2e-generated-tsconfig.json
-* .css.ts
-
-# material de demonstração
-demos / node_modules
-demos / polyfills
-demos / css
-demos / fonts
-demos / src / ** / *. js
-mapa de demos / src / ** / *.
-demos / src / ** / *. ngfactory.ts
-demos / src / ** / *. d.ts
-demos / src / ** / *. metadata.json
-demos / src / ** / *. css.shim.ts
+# Fim de https://www.giggnore.io/api/node,ionic3
