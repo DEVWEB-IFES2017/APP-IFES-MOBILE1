@@ -16,18 +16,12 @@
 <ion-content padding>
 
   <ion-list>
-    <!--ion-item>
-      <ion-label floating>Grupo:</ion-label>
-      <ion-list name="obj1" type="list-inset" [(ngModel)]="model.Disciplina"></ion-list>
-    </ion-item-->
-
     <ion-item>
       <ion-label floating>Grupo:</ion-label>
       <ion-select name="iddisciplina" [(ngModel)]="model.iddisciplina">
-        <ion-option *ngFor="let item of model.Disciplina" value="{{ item.iddisciplina }}">{{ item.disciplina}}</ion-option>
+        <ion-option *ngFor="let item of model.Disciplina" value="{{ item.iddisciplina }}">{{ item.descricao}}</ion-option>
       </ion-select>
     </ion-item>
-
 
     <ion-item>
       <ion-label floating>Título do Evento:</ion-label>
@@ -48,8 +42,7 @@
       <ion-label stacked>Hora:</ion-label>
       <ion-datetime displayFormat="hh:mm" name="hora"  [(ngModel)]="model.hora"></ion-datetime>
     </ion-item>
-
-
+    
     <ion-item>
       <ion-label floating>Local do Evento:</ion-label>
       <ion-input name="local" type="text" [(ngModel)]="model.local"></ion-input>

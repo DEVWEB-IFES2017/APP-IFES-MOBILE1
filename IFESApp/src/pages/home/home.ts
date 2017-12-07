@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { NovoeventoPage } from '../novoevento/novoevento';
 import { Agenda, Evento, ServiceLogin } from '../../providers/servicelogin/servicelogin';
 import { List } from 'linqts';
-import { SlicePipe } from '@angular/common';
+//import { SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'page-home',
@@ -23,8 +23,9 @@ export class HomePage {
 
   dados: any;
   evento: Evento;
+  servicelogin:ServiceLogin;
 
-  constructor(public navCtrl: NavController, evento: Evento,servicelogin:ServiceLogin) {
+  constructor(public navCtrl: NavController, evento: Evento, servicelog:ServiceLogin) {
     this.monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     this.date = new Date();
     this.currentMonth = this.monthNames[this.date.getMonth()];
@@ -34,7 +35,7 @@ export class HomePage {
     this.evento = evento;
     //let JsonObj = '[{"idagenda":"1","data":"2017-11-29","titulo":"Prova1","descricao":"Prova de matemática1"},{"idagenda":"2","data":"2017-11-30","titulo":"Prova2","descricao":"Prova de matemática2"},{"idagenda":"3","data":"2017-11-30","titulo":"Prova3","descricao":"Prova de matemática3"}]';
     //this.dados = JSON.parse(JsonObj);
-
+    this.servicelogin = servicelog;
     this.getDaysOfMonth();
   }
 
@@ -81,16 +82,9 @@ export class HomePage {
   }
 
   irparanovoevento() {
-    discip: Disciplina[];
-    
-    servicelogin.getAlldisciplinas().then(disciplina => {
-      console.log("Está imprimindo assim ó : " + disciplina);
-      this.discip = disciplina;
-      this.model.Disciplina = this.discip;
-      NovoeventoPage
-      this.navCtrl.setRoot(NovoeventoPage,this.discip);
-      });
-    
+    this.servicelogin.getAlldisciplinas().then(discip => {
+      this.navCtrl.setRoot(NovoeventoPage,{disciplina:discip});
+    });
   }
 
   //Now, add the function for previous month button action.
@@ -107,8 +101,11 @@ export class HomePage {
   }
 
   OpenEvento(id) {
+    var agend = new List<Agenda>(this.dados).Where(data => data.idagenda == id).First();    
 
-    console.log("Data", id);
+    this.servicelogin.getAlldisciplinas().then(discip => {
+      this.navCtrl.setRoot(NovoeventoPage,{disciplina:discip,agenda:agend});
+    });
   }
 
   TemEventoId(dia: number) {
