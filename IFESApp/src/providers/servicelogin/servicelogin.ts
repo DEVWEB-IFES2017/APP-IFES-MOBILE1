@@ -71,7 +71,7 @@ export class ServiceLogin {
       else
         this.API_URL = this.API_URL + '/api/alunodisciplinasapi/' + id_usuario;
 
-      //console.log("Url Post", this.API_URL);
+      console.log("Url Post", this.API_URL);
 
       this.http.get(this.API_URL, options).subscribe((result: any) => {
         resolve(result.json());
@@ -139,10 +139,7 @@ export class ServiceLogin {
       loading.dismiss();
       return disciplina;
     }
-
   }
-
-
 }
 
 @Injectable()
@@ -235,5 +232,5 @@ export class Agenda {
 export class Disciplina {
   iddisciplina: number;
   id_usuario: number;
-  disciplina: string;
+  descricao: string;
 }

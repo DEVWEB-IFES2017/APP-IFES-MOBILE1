@@ -26,7 +26,6 @@ export class IFESApp {
 
       servicelogin.Usuarioget().then(user => {
         this.usuario = user;
-        console.log("cod. usuario:", this.usuario.idusuario);
         servicelogin.listardisciplinas(this.usuario.idusuario,this.usuario.servidor);
         this.openHomePage(splashScreen);
       });
