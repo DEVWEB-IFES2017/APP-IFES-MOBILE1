@@ -23,7 +23,7 @@
 
     <ion-item>
       <ion-label floating>Grupo:</ion-label>
-      <ion-select name="obj1" [(ngModel)]="model.iddisciplina">
+      <ion-select name="iddisciplina" [(ngModel)]="model.iddisciplina">
         <ion-option *ngFor="let item of model.Disciplina" value="{{ item.iddisciplina }}">{{ item.disciplina}}</ion-option>
       </ion-select>
     </ion-item>
@@ -40,10 +40,14 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Data (hh:mm):</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" name="dataevento" min="2017" max="2020" [(ngModel)]="model.dataevento"></ion-datetime>
+      <ion-label stacked>Data:</ion-label>
+      <ion-input type="date" displayFormat="DD/MM/YYYY" name="dataevento"  [(ngModel)]="model.dataevento"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label stacked>Hora:</ion-label>
+      <ion-datetime displayFormat="hh:mm" name="hora"  [(ngModel)]="model.hora"></ion-datetime>
+    </ion-item>
 
 
     <ion-item>

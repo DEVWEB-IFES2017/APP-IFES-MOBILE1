@@ -61,21 +61,45 @@ export class ServiceLogin {
     });
   }
 
+  listardisciplinas(id_usuario: number, servidor: boolean) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      if (servidor)
+        this.API_URL = this.API_URL + '/api/disciplinasapi/' + id_usuario;
+      else
+        this.API_URL = this.API_URL + '/api/alunodisciplinasapi/' + id_usuario;
+
+      //console.log("Url Post", this.API_URL);
+
+      this.http.get(this.API_URL, options).subscribe((result: any) => {
+        resolve(result.json());
+        var disciplina: Disciplina[]=result.json();
+        this.salvardisclocal(disciplina);
+
+      },
+        (error) => {
+          reject(error.json());
+        });
+    });
+  }
+
+  public salvardisclocal(disciplina: Disciplina[]) {
+    this.db.set('disciplina', JSON.stringify(disciplina));
+    
+  }
+
   public insert(usu: Usuario) {
-    console.log("Inserindo no banco...", usu);
     this.db.set('usuario', JSON.stringify(usu));
-    console.log("Inseriu...");
   }
 
   public async Usuarioget(): Promise<Usuario> {
-    console.log("Pesquisando no banco...");
     let usuario = new Usuario();
     usuario.idusuario = 0;
 
-    console.log("Pesquisa Usuario");
-
     let loading = this.loadingCtrl.create({
-      content: 'Aquarde....',
+      content: 'Aguarde....',
       dismissOnPageChange: true
 
     });
@@ -94,6 +118,31 @@ export class ServiceLogin {
     }
 
   }
+
+  public async getAlldisciplinas():Promise<Disciplina[]>{    
+    
+    let loading = this.loadingCtrl.create({
+      content: 'Aguarde....',
+      dismissOnPageChange: true
+
+    });
+
+    loading.present();
+
+    let disciplina = await this.db.get('disciplina');
+
+    if (disciplina) {
+      loading.dismiss();
+      return JSON.parse(disciplina);
+    }
+    else {
+      loading.dismiss();
+      return disciplina;
+    }
+
+  }
+
+
 }
 
 @Injectable()
@@ -107,10 +156,12 @@ export class Evento {
     return new Promise((resolve, reject) => {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-
+      agenda.Disciplina = null;
+      agenda.dataevento = agenda.dataevento + "T" + agenda.hora;
+      console.log(JSON.stringify(agenda));
 
       this.API_URL = this.API_URL + '/api/AgendaApi';
-      this.http.post(this.API_URL, agenda, options).subscribe((result: any) => {
+      this.http.post(this.API_URL, JSON.stringify(agenda), options).subscribe((result: any) => {
         resolve(result.json());
 
       },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NovoeventoPage } from '../novoevento/novoevento';
-import { Agenda, Evento } from '../../providers/servicelogin/servicelogin';
+import { Agenda, Evento, ServiceLogin } from '../../providers/servicelogin/servicelogin';
 import { List } from 'linqts';
 import { SlicePipe } from '@angular/common';
 
@@ -24,7 +24,7 @@ export class HomePage {
   dados: any;
   evento: Evento;
 
-  constructor(public navCtrl: NavController, evento: Evento) {
+  constructor(public navCtrl: NavController, evento: Evento,servicelogin:ServiceLogin) {
     this.monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     this.date = new Date();
     this.currentMonth = this.monthNames[this.date.getMonth()];
@@ -81,7 +81,16 @@ export class HomePage {
   }
 
   irparanovoevento() {
-    this.navCtrl.setRoot(NovoeventoPage);
+    discip: Disciplina[];
+    
+    servicelogin.getAlldisciplinas().then(disciplina => {
+      console.log("Está imprimindo assim ó : " + disciplina);
+      this.discip = disciplina;
+      this.model.Disciplina = this.discip;
+      NovoeventoPage
+      this.navCtrl.setRoot(NovoeventoPage,this.discip);
+      });
+    
   }
 
   //Now, add the function for previous month button action.
